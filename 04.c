@@ -1,24 +1,57 @@
-//Roberto e o dono de uma empresa com 20 filiais e precisa de ajuda para criar um algoritmo. Ele possui um vetor com 20 valores reais, onde valores positivos representam filiais lucrativas e valores negativos representam filiais que dao prejuizo. Voce deve desenvolver um algoritmo que faca o seguinte: (a) Imprima o indice no vetor de todas as empresas que dao lucro; (b) Calcule a média dos lucros, desconsiderando todas as filiais que dao prejuizo.
+// Um grupo de amigos esta debatendo sobre a ordem de altura entre eles. Para resolver essa discussao, eles pediram que voce criasse um algoritmo que fizesse o seguinte:
+//(a) Leia a altura de 6 amigos;
+//(b) Imprima a maior e a menor altura, juntamente com a posicao (ou indice) do amigo mais baixo e do mais alto;
+//(c) Em seguida, imprima as alturas dos amigos em ordem crescente, do mais baixo para o mais alto.
 
 #include <stdio.h>
-int main () {
-    float vet[20], media = 0;
-    int i, contador = 0;
-    
-    for (i = 1; i < 20; i++){
-    printf ("Digite o valor da empresa %d\n:", i);
-    scanf ("%f", &vet[i]);
+int main()
+{
+    int i, j;
+    float vet[6], temp;
+    for (i = 0; i < 6; i++)
+    {
+        printf("Digite a altura do amigo %d: \n", i);
+        scanf("%f", &vet[i]);
     }
 
-    for (i = 1; i < 20; i++){
-    if (vet[i] > 0) {
-        contador ++;
-        printf ("o indice das empresas estao em %d \n", i); 
-        float soma = +vet[i];
-        media = soma/contador;
-        }}
+    float maior;
+    for (i = 0; i < 6; i++)
+    {
+        if (vet[i] > maior)
+        {
+            maior = vet[i];
+        }
+    }
 
-    printf ("as empresas que dao lucros sao %d e a media é %f: \n", contador, media);
+    float menor = vet[0];
 
+    for (i = 1; i < 6; i++)
+    {
+        if (vet[i] < menor)
+        {
+            menor = vet[i];
+        }
+    }
+
+    printf("a menor altura é: %f e a maior altura é: %f\n", menor, maior);
+
+    for (i = 0; i < 6; i++)
+    {
+        for (j = 0; j < 6 - i; j++)
+        {
+            if (vet[j] > vet[j + 1])
+            {
+                temp = vet[j];
+                vet[j] = vet[j + 1];
+                vet[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Alturas em ordem crescente:\n");
+    for (i = 0; i < 6; i++)
+    {
+        printf("%.2f\n", vet[i]);
+    }
     return 0;
 }

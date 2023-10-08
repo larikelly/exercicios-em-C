@@ -10,5 +10,17 @@
 //(c) Imprima um vetor com os elementos da diagonal principal (onde i e igual a j).
 #include <stdio.h>
 int main (){
+    int mat[5][5], i, j;
+
+    for (i=0; i<5; i++){
+        for (j=0; j<5; j ++){
+            scanf("%d",&mat[i][j]);
+            //mat[i][j] = i +, j +;
+        }}
+    for (j=0; j<5; j++){
+
+    }
+    
+    
     return 0;
 }
