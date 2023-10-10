@@ -15,24 +15,18 @@ for (i = 0; i < 8; i++){
     vet[i] = 3.6*VM;
 }
 //em ordem
-int j, aux;
+int j, aux, n = 0;
   for (i = 0; i < n-1; i++) {
-        for (j = 0; j < n-i-1; j++) {
+        for (j = 0; j < n - i-1; j++) {
             if (vet[j] > vet[j+1]) {
-                // Troca os elementos
                 aux = vet[j];
                 vet[j] = vet[j+1];
                 vet[j+1] = aux;
-            }
-        }
-    }
-}
+            }}}
 
-printf ("Ordem de chegada");
+printf ("Ordem de chegada\n");
 for (i = 0; i < 3; i++){
-    printf ("%f",vet[i]);
+    printf ("%d, %.2f km\n",i, vet[i]);
 }
-
-
     return 0;
 }
